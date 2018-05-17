@@ -45,9 +45,9 @@ public class Helper {
 
         BuildState state;
         PrintStream logger = listener.getLogger();
-        logger.println("STARTED");
-        state = BuildState.STARTED;
-        processJenkinsEvent(run, null, listener, state, config);
+        // logger.println("STARTED");
+        // state = BuildState.STARTED;
+        // processJenkinsEvent(run, null, listener, state, config);
         Result buildResult = run.getResult();
         if (buildResult == null) {
             // state = BuildState.INPROGRESS;
@@ -114,7 +114,7 @@ public class Helper {
         return (instance.getRootUrl() != null) ? instance.getRootUrl() : globalConfig.getUrl();
     }
 
-    private NotificationResult NotifyWebHook(final Run<?, ?> build,BuildState state, PluginConfig config) throws Exception {
+    public NotificationResult NotifyWebHook(final Run<?, ?> build,BuildState state, PluginConfig config) throws Exception {
 
         if ("Post".equals(config.getWebHookType())) {
             HttpPost request = new HttpPost(buildWebHookURL(config));

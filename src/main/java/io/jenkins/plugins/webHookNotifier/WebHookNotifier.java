@@ -107,8 +107,12 @@ public class WebHookNotifier extends Notifier implements SimpleBuildStep {
 
     @Override
     public boolean prebuild(AbstractBuild<?, ?> build, BuildListener listener) {
-        
-                return true;
+            try {
+				Helper.getInstance().NotifyWebHook((Run<?, ?>)build, BuildState.STARTED, getConfig());
+			} catch (Exception e) {
+				listener.getLogger().println("Error while Notify Start:"+e.getMessage());
+			}
+            return true;
         // return processJenkinsEvent(build, null, listener, BuildState.INPROGRESS);
     }
 
