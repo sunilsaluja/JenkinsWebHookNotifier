@@ -1,0 +1,46 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:c="/lib/credentials">
+  <!--
+  	Create text fields for the following values
+  	- Stash server base URL
+  	- Stash credentials
+  	- Ignore unverified SSL certificate flag
+  -->
+ <f:section title="WebHook Notifier">
+	<f:entry title="WebHook type*" 
+             field="webHookType" 
+             help="GET or POST.">
+        <f:select />
+    </f:entry>
+    <f:entry title="WebHook Url*" 
+             field="webHookURL" 
+             help="Enter WebHook Url.">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="Authentication Key" 
+             field="authKey" 
+             help="Enter Authentication Key.(Optional)">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="Authentication Token" 
+             field="authToken" 
+             help="Enter Authentication Token.(Optional)">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="Notify Start" field="notifyStart">
+        <f:checkbox />
+    </f:entry>
+    <f:entry title="Notify Success" field="notifySuccess">
+        <f:checkbox />
+    </f:entry>
+    <f:entry title="Notify Aborted" field="notifyAborted">
+        <f:checkbox />
+    </f:entry>
+    <f:entry title="Notify Not Built" field="notifyNotBuilt">
+        <f:checkbox />
+    </f:entry>
+        <f:entry title="Notify Failed" field="notifyFailed">
+        <f:checkbox />
+    </f:entry>
+
+	</f:section>
+</j:jelly>
